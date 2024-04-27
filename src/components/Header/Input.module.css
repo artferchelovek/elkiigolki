@@ -1,0 +1,22 @@
+.input {
+  display: flex;
+  width: 90%;
+  border-radius: 15px;
+  min-height: 55px;
+  border: none;
+  font-family: "Roboto Slab", serif;
+  background: #edf2fe;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  width: 95%;
+  font-size: 25px;
+  border: none;
+  background: none;
+  outline: none;
+  font-weight: bold;
+}

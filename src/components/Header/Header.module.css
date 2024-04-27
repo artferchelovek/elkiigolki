@@ -1,0 +1,74 @@
+.header {
+  margin: 30px auto;
+  width: 75%;
+  min-height: 120px;
+  padding: 40px 30px;
+  border-radius: 40px;
+  background: linear-gradient(19deg, #0066b3 0%, #002c4d 100%);
+  box-shadow: 0 0 72px 0 rgba(1, 89, 155, 0.52);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mainmenu {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: -30px;
+  min-height: 200px;
+  padding: 40px 30px;
+  background: #2074a7;
+  z-index: 100;
+  border-radius: 0 0 40px 40px;
+}
+
+.headerstyle {
+  margin: 30px auto;
+  width: 75%;
+  min-height: 120px;
+  padding: 40px 30px;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 0 72px 0 rgba(1, 89, 155, 0.52);
+  background: linear-gradient(19deg, #0066b3 0%, #002c4d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+
+.choose {
+  width: 90%;
+  background: #edf2fe;
+  padding: 20px 35px;
+  border-radius: 25px;
+  margin: 15px auto;
+}
+
+.choose:hover {
+  background: #dedede;
+  transition: 0.25s all ease-in-out;
+}
+
+.title {
+  font-size: 22px;
+  color: #0b1f33;
+  font-weight: bold;
+}
+
+.descr {
+  margin-top: 30px;
+  font-size: 15px;
+  color: #38495c;
+}
+
+.pushka {
+  display: none;
+}
+
+.pushkaez {
+  display: block;
+}
