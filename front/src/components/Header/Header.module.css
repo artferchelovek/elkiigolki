@@ -70,5 +70,19 @@
 }
 
 .pushkaez {
-  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px auto;
+}
+
+.pushkaimg {
+  margin: 30px 0;
+}
+
+.sorry {
+  color: #edf2fe;
+  font-weight: bold;
+  font-size: 30px;
 }

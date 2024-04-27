@@ -4,7 +4,6 @@ import ShopIcon from "/src/assets/header/supermarket.svg";
 import HouseIcon from "/src/assets/header/house.svg";
 
 export default function ProgresBar({ proc }) {
-  console.log(proc);
   const fill = {
     height: "62px",
     borderBottom: "5px solid #e7dd1a",

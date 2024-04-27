@@ -3,33 +3,17 @@ import classes from "./ChooseCity.module.css";
 import Lupa from "/src/assets/main/lupa.svg";
 import { cities } from "/src/data.js";
 
-async function SendData(data) {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: new Headers({
-      "ngrok-skip-browser-warning": "69420",
-      "Content-type": "application/json",
-    }),
-    body: JSON.stringify(data),
-  });
-
-  console.log(data);
-  const NewData = await response.json();
-
-  console.log(NewData.title);
-}
-
-export default function ChooseCity({ status, counter, count }) {
+export default function ChooseCity({ status, counter, count, setvis }) {
   const [visible, SetVisible] = useState(`${classes.block}`);
   const [Value, SetValues] = useState("");
   const [Cities, SetCities] = useState([]);
-  console.log(Cities);
 
   useEffect(() => {
     // visible of block of text
-    console.log(status);
     if (status) {
       SetVisible(`${classes.block} ${classes.active}`);
+    } else {
+      SetVisible(`${classes.block}`);
     }
   }, [status]);
 
@@ -62,6 +46,7 @@ export default function ChooseCity({ status, counter, count }) {
                 document.getElementById("cities").value = city;
                 if (document.getElementById("cities") != null) {
                   counter(count + 20);
+                  setvis(false);
                 }
               }}
             >

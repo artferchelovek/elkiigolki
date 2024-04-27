@@ -4,19 +4,18 @@ import input from "./Input.module.css";
 import Lupa from "/src/assets/header/icon.svg";
 import progres from "./ProgressBar.module.css";
 import ProgresBar from "./ProgresBar";
+import Pushka from "/src/assets/header/pushka.svg";
 
-const url = "https://662e-5-44-172-64.ngrok-free.app";
+const url = "http://127.0.0.1:5000";
 
 export default function Header({ status, keys, cities, counter }) {
   const [value, SetValue] = useState("");
   const [openProgres, setProgress] = useState(false);
-  const [visible, SetVisible] = useState(`${classes.pushka}`);
+  const [visibles, SetVisible] = useState(`${classes.pushkaez}`);
 
   function SetKey(press) {
     if (press.key == "Enter") {
-      console.log(value);
       counter(status + 20);
-      console.log(document.getElementById("progr"));
       document.getElementById("progr").classList.add(`${progres.active}`);
     }
   }
@@ -28,7 +27,6 @@ export default function Header({ status, keys, cities, counter }) {
         key: keys,
         city: cities,
       };
-
       async function SendData(data) {
         const response = await fetch(url, {
           method: "POST",
@@ -41,20 +39,17 @@ export default function Header({ status, keys, cities, counter }) {
 
         const NewData = await response.json();
 
-        console.log(NewData.title);
-
         InstallDB(NewData.title);
       }
 
       SendData(Data);
-
-      console.log(db);
-
-      if (db.length == 0) {
-        SetVisible(`${classes.pushaez}`);
-      }
     }, []);
 
+    useEffect(() => {
+      if (db.length > 0) {
+        SetVisible(`${classes.pushka}`);
+      }
+    });
     return (
       <header>
         <div className={classes.headerstyle}>
@@ -82,9 +77,13 @@ export default function Header({ status, keys, cities, counter }) {
               <p className={classes.descr}>{note.otvets}</p>
             </div>
           ))}
-        </div>
-        <div className={visible}>
-          <h1>хуя се</h1>
+
+          <div className={visibles}>
+            <img className={classes.pushkaimg} src={Pushka} alt="" />
+            <p className={classes.sorry}>
+              В Вашем городе, пока нет такой услуги
+            </p>
+          </div>
         </div>
       </header>
     );
