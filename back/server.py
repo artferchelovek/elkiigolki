@@ -4,6 +4,7 @@
 from flask import Flask, request, Response
 from func_db import get_service_by_word_and_city, get_service_by_only_city, get_service_by_only_words
 from flask_cors import CORS
+from random import randint
 
 app = Flask(__name__) #создание основного класса
 CORS(app) #разрешения
@@ -19,33 +20,57 @@ def main():
         #Если пользователь не введет запрос
         if words == '':
             data = get_service_by_only_city(city)
-            data = data[0:6]
-            for Id in range(len(data)):
-                data[Id]["id"] = Id
-            resp = {
-                "title": data,
-            }
-            return resp
+            if len(data) <= 6:
+                for Id in range(len(data)):
+                    data[Id]["id"] = Id
+                resp = {
+                    "title": data,
+                }
+                return resp
+            else:
+                for Id in range(6):
+                    id_for_choose = randint(0, len(data) - 1)
+                    data[id_for_choose]["id"] = Id
+                resp = {
+                    "title": data,
+                }
+                return resp
         #Если пользователь не введет город
         if city == '':
             data = get_service_by_only_words(city)
-            data = data[0:6]
-            for Id in range(len(data)):
-                data[Id]["id"] = Id
-            resp = {
-                "title": data,
-            }
-            return resp
+            if len(data) <= 6:
+                for Id in range(len(data)):
+                    data[Id]["id"] = Id
+                resp = {
+                    "title": data,
+                }
+                return resp
+            else:
+                for Id in range(6):
+                    id_for_choose = randint(0, len(data) - 1)
+                    data[id_for_choose]["id"] = Id
+                resp = {
+                    "title": data,
+                }
+                return resp
         #Если  все введет
         else:
             data = get_service_by_word_and_city(words, city)
-            data = data[0:6]
-            for Id in range(len(data)):
-                data[Id]["id"] = Id
-            resp = {
-                "title": data,
-            }
-            return resp
+            if len(data) <= 6:
+                for Id in range(len(data)):
+                    data[Id]["id"] = Id
+                resp = {
+                    "title": data,
+                }
+                return resp
+            else:
+                for Id in range(6):
+                    id_for_choose = randint(0, len(data) - 1)
+                    data[id_for_choose]["id"] = Id
+                resp = {
+                    "title": data,
+                }
+                return resp
     #GET запрос при подключении клиента к серверу
     elif request.method == 'GET':
         response = Response(status=200)
